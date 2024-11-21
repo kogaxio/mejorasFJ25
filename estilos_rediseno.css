@@ -1,0 +1,559 @@
+/* styles.css */
+
+/*----------------------------------------------
+  1. Reset - Normalización de estilos
+----------------------------------------------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/*----------------------------------------------
+  1.2. Estilos generales para modo oscuro
+----------------------------------------------*/
+
+:root {
+    /* Dark mode colors */
+    --dark-bg: #121212;
+    --dark-surface: #1E1E1E;
+    --dark-surface-2: #2D2D2D;
+    --dark-primary: #7B7DFF;
+    /* Lighter version of the blue */
+    --dark-text: #E1E1E1;
+    --dark-text-secondary: #B0B0B0;
+    --dark-border: #333333;
+    --dark-hover: #3A3A3A;
+}
+
+[data-theme="dark"] {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+/* Navbar */
+[data-theme="dark"] .navbar {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .navbar-default .navbar-nav>li>a {
+    color: var(--dark-text);
+}
+
+/* Search Section */
+[data-theme="dark"] .search-section {
+    background-color: var(--dark-primary);
+}
+
+[data-theme="dark"] .search-input {
+    background-color: var(--dark-surface);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+}
+
+/* School Icons Section */
+[data-theme="dark"] .schools-section {
+    background-color: var(--dark-surface);
+}
+
+[data-theme="dark"] .school-icon {
+    background-color: var(--dark-surface-2);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+[data-theme="dark"] .school-icon p {
+    color: var(--dark-text-secondary);
+}
+
+/* Resources and Content */
+[data-theme="dark"] .section-title {
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .resource-list a {
+    color: var(--dark-primary);
+}
+
+[data-theme="dark"] .resource-list a:hover {
+    color: #9B9DFF;
+}
+
+/* Book Recommendations */
+[data-theme="dark"] .book-item {
+    background-color: var(--dark-surface-2);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+[data-theme="dark"] .book-title {
+    color: var(--dark-text-secondary);
+}
+
+/* Cards and Containers */
+[data-theme="dark"] .course-banner {
+    background-color: var(--dark-surface-2);
+    border: 1px solid var(--dark-border);
+}
+
+/* Common Elements */
+[data-theme="dark"] .btn {
+    background-color: var(--dark-surface-2);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .btn:hover {
+    background-color: var(--dark-hover);
+}
+
+/* Improved Contrast */
+[data-theme="dark"] ::placeholder {
+    color: var(--dark-text-secondary);
+}
+
+/*----------------------------------------------
+  2. Variables y Estilos Base
+----------------------------------------------*/
+:root {
+    --color-primary: #007bff;
+    --color-text: #333333;
+    --color-background: #ffffff;
+
+    --font-primary: 'Poppins', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: color-mix(in srgb, var(--color-primary) 80%, black);
+} */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+button,
+input,
+select,
+textarea {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+}
+
+button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 80%, black);
+}
+
+/*----------------------------------------------
+  X. Header institucional
+----------------------------------------------*/
+.institutional-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #222222;
+    color: white;
+    height: 60px;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+/* Íconos del header */
+.institutional-nav .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.institutional-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: opacity 0.2s ease;
+}
+
+.institutional-nav .nav-link:hover {
+    opacity: 0.8;
+}
+
+.institutional-nav img {
+    width: 20px;
+    height: 20px;
+}
+
+/* If you want to hide the text and only show icons */
+.institutional-nav .nav-link span {
+    /* Uncomment below if you want to hide text */
+    /* display: none; */
+}
+
+
+/*----------------------------------------------
+  X. Navegación principal
+----------------------------------------------*/
+.main-nav {
+    position: fixed;
+    top: 60px;
+    /* Height of institutional header */
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 999;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    height: 50px;
+    align-items: center;
+}
+
+.main-nav a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: #003366;
+    /* Match with header color */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .institutional-nav .nav-link span {
+        display: none;
+        /* Hide text on mobile */
+    }
+
+    .institutional-nav .nav-list {
+        gap: 1rem;
+    }
+
+    .main-nav .nav-list {
+        gap: 1rem;
+        overflow-x: auto;
+        padding: 0 1rem;
+    }
+
+    .main-nav {
+        overflow-x: auto;
+    }
+}
+
+/* Custom Styles */
+.main-nav {
+    margin-bottom: 0;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar-brand {
+    padding: 10px 15px;
+}
+
+.navbar-brand img {
+    height: 30px;
+}
+
+.top-icons {
+    margin-left: 10px;
+}
+
+.top-icons img {
+    height: 20px;
+    margin-left: 10px;
+}
+
+.search-section {
+    background-color: #4B4DDB;
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.decorative-circle {
+    position: absolute;
+    right: -100px;
+    top: -50px;
+    width: 300px;
+    height: 300px;
+    background-image: url('/images/circle-pattern.png');
+    opacity: 0.1;
+}
+
+.search-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.biblioxplora-logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: none;
+    border-radius: 20px;
+    height: 45px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+}
+
+.advanced-search {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.advanced-search a {
+    color: white;
+    text-decoration: underline;
+}
+
+.schools-section {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.schools-title {
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+.school-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.school-icon {
+    width: 100px;
+    text-align: center;
+}
+
+.school-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+}
+
+.school-icon p {
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.main-content {
+    padding: 2rem 0;
+}
+
+.course-banner {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.course-banner img {
+    width: 100%;
+}
+
+.resources-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.section-title img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.resource-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resource-list li {
+    margin-bottom: 8px;
+}
+
+.resource-list li a {
+    color: #4B4DDB;
+    text-decoration: none;
+}
+
+.recommendations {
+    margin-top: 40px;
+}
+
+.recommendations h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.book-carousel {
+    padding: 0 40px;
+}
+
+.book-item {
+    padding: 10px;
+}
+
+.book-cover {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.book-title {
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
