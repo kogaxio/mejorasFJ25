@@ -260,6 +260,12 @@ button:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.logo {
+    height: auto;
+    width: 160px;
+
+}
+
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -371,7 +377,7 @@ button:hover {
 }
 
 .navbar-brand img {
-    height: 30px;
+    height: 30pxgit status git log --oneline;
 }
 
 .top-icons {
